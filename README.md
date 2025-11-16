@@ -11,33 +11,48 @@ This project recreates the functionality of Unix `grep`, supporting:
 - Highlighting for visually appleaing appearance
 
 ## How to run the program
-- Clone the repository using git clone
 ```bash
-- $cd looks
-- $make
-
+$git clone <repo url>
+$cd looks
+$make
+```
 ## Usage
-```bash
 to begin with basic search
-$ ./look <pattern(s)> --f <filename(s)>
+```bash
+$./look <pattern(s)> --f <filename(s)>
+```
 
 to spawn n numbers of threads
-$ ./look <pattern(s)> --f <filename(s)> --t=n
+```bash
+$./look <pattern(s)> --f <filename(s)> --t=n
+```
 
 to activate strict search(to match the exact pattern,not string containing the pattern as substring)
-$ ./look <pattern(s)> --f <filename(s)> --s
+```bash
+$./look <pattern(s)> --f <filename(s)> --s
+```
 
 to activate case-insensitive searching
-$ ./look <pattern(s)> --f <filename(s)> --i
+```bash
+$./look <pattern(s)> --f <filename(s)> --i
+```
 
 to disable highlighting 
-$ ./look <pattern(s)> --f <filename(s)> --nh
+```bash
+$./look <pattern(s)> --f <filename(s)> --nh
+```
 
 to show summary(less)
-$. /look <pattern(s)> --f <filename(s)> --l
+```bash
+$./look <pattern(s)> --f <filename(s)> --l
+```
 
 to pipe in the file
-$ program | ./look <pattern(s)>
+```bash
+$program | ./look <pattern(s)>
+```
 
 to pipe out the search result as a text file
-$ ./look <pattern(s)> --f <filename(s)> >>result.txt
+```bash
+$./look <pattern(s)> --f <filename(s)> >>result.txt
+```
