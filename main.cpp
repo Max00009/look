@@ -1,4 +1,3 @@
-//reminder:adjustable size
 #include <iostream>
 #include <fstream> //to read from file
 #include <string> 
@@ -19,14 +18,13 @@
 std::mutex cout_mutex;
 std::mutex cerr_mutex;
 std::mutex pattern_queue_mutex;
-
+//necessary global variables
 bool case_insensitive=false;
 bool highlight=true;
 bool strict_search=false;
 bool less=false;
 bool is_pipe_output=!isatty(STDOUT_FILENO);
 bool is_pipe_input=!isatty(STDIN_FILENO);
-// bool is_pipe_err=!isatty(STDERR_FILENO);
 
 void add_virtual_file_from_piped_input(std::vector<std::string>& files){
     //first we will create a buffer and read line by line from std::cin and store that inside that buffer
