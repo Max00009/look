@@ -10,9 +10,13 @@ This project recreates the functionality of Unix `grep`, supporting:
 - Case-sensitive and case-insensitive search
 - Highlighting for visually appleaing appearance
 
+## How to run the program
+- Clone the repository using git clone
+```bash
+- $cd looks
+- $make
 
 ## Usage
-
 ```bash
 to begin with basic search
 $ ./look <pattern(s)> --f <filename(s)>
