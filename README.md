@@ -1,6 +1,6 @@
-# grep-from-scratch
+# look
 
-A C++ implementation of `grep` built from scratch. 
+A C++ implementation of `grep` built from scratch to match String patterns.
 
 ## Description
 This project recreates the functionality of Unix `grep`, supporting:
@@ -8,9 +8,9 @@ This project recreates the functionality of Unix `grep`, supporting:
 - Searching text files for patterns
 - Multiple patterns and files supported
 - Case-sensitive and case-insensitive search
-- Regex matching (future stages)
+- Highlighting for visually appleaing appearance
 
 
 ## Usage
 ```bash
-./mygrep <pattern(s)> --f <filename(s)>
+./look <pattern(s)> --f <filename(s)> (for basic search)
