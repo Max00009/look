@@ -13,4 +13,7 @@ This project recreates the functionality of Unix `grep`, supporting:
 
 ## Usage
 ```bash
-**`./look <pattern(s)> --f <filename(s)>`** for basic search to begin with
+./look <pattern(s)> --f <filename(s)>
+
+
+for basic search to begin with
