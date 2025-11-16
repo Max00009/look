@@ -13,7 +13,24 @@ This project recreates the functionality of Unix `grep`, supporting:
 
 ## Usage
 ```bash
-./look <pattern(s)> --f <filename(s)>
-
-
 for basic search to begin with
+$ ./look <pattern(s)> --f <filename(s)>
+to spawn n numbers of threads
+$ ./look <pattern(s)> --f <filename(s)> --t=n
+to activate strict search(to match the exact pattern,not string containing the pattern as substring)
+$ ./look <pattern(s)> --f <filename(s)> --s
+to activate case-insensitive searching
+$ ./look <pattern(s)> --f <filename(s)> --i
+to disable highlighting 
+$ ./look <pattern(s)> --f <filename(s)> --nh
+to show summary(less)
+$. /look <pattern(s)> --f <filename(s)> --l
+to pipe in the file
+$ program | ./look <pattern(s)>
+to pipe out the search result as a text file
+$ ./look <pattern(s)> --f <filename(s)> >>result.txt
+
+
+
+
+
