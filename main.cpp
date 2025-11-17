@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>//for exit()
 #include <fstream> //to read from file
 #include <string> 
 #include <vector>
@@ -26,6 +27,25 @@ bool less=false;
 bool is_pipe_output=!isatty(STDOUT_FILENO);
 bool is_pipe_input=!isatty(STDIN_FILENO);
 
+void help(){
+    std::cout<<"to begin with basic search\n"
+    "$./look <pattern(s)> --f <filename(s)>\n\n"
+    "to spawn n numbers of threads\n"
+    "$./look <pattern(s)> --f <filename(s)> --t=n\n\n"
+    "to activate strict search(to match the exact pattern,not string containing the pattern as substring)\n"
+    "$./look <pattern(s)> --f <filename(s)> --s\n\n"
+    "to activate case-insensitive searching\n"
+    "$./look <pattern(s)> --f <filename(s)> --i\n\n"
+    "to disable highlighting\n"
+    "$./look <pattern(s)> --f <filename(s)> --nh\n\n"
+    "to show summary(less)\n"
+    "$./look <pattern(s)> --f <filename(s)> --l\n\n"
+    "to pipe in the file\n"
+    "$program | ./look <pattern(s)>\n\n"
+    "to pipe out the search result as a text file\n"
+    "$./look <pattern(s)> --f <filename(s)> >>result.txt"
+    <<std::endl;
+}
 void add_virtual_file_from_piped_input(std::vector<std::string>& files){
     //first we will create a buffer and read line by line from std::cin and store that inside that buffer
     std::ostringstream buffer;
@@ -144,14 +164,17 @@ int main(int argc,char* argv[]){
     unsigned int num_threads;
     const unsigned int MAX_THREADS=std::min(4u, std::max(1u, std::thread::hardware_concurrency()));//thread count depends on cpu core but within 1 to 4.later i will make thread count configurable via command-line flag
     std::vector<std::thread> threads;
-    std::array<std::string,5> flags={"--t","--i","--nh","--s","--l"};//t=thread,i=case insensitive,nh=highlight off,s=strict search
+    std::array<std::string,6> flags={"--t","--i","--nh","--s","--l","--h"};//t=thread,i=case insensitive,nh=highlight off,s=strict search
     //collects patterns and files name in respective container
     bool after_f=false;
     bool outside_file_scope=false;        
     if (is_pipe_input) add_virtual_file_from_piped_input(files);
     for (size_t i=1;i<argc;i++){
         std::string arg=argv[i];
-        if(arg=="--f"){
+        if(arg=="--h"){
+            help();
+            exit(0);
+        }else if(arg=="--f"){
             after_f=true;
         }else if(!after_f){
             pattern_queue.push(arg);
