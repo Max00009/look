@@ -17,6 +17,10 @@ $cd looks
 $make
 ```
 ## Usage
+for help
+```bash
+$./look --h
+```
 to begin with basic search
 ```bash
 $./look <pattern(s)> --f <filename(s)>
