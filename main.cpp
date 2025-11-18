@@ -164,7 +164,7 @@ int main(int argc,char* argv[]){
     unsigned int num_threads;
     const unsigned int MAX_THREADS=std::min(4u, std::max(1u, std::thread::hardware_concurrency()));//thread count depends on cpu core but within 1 to 4.later i will make thread count configurable via command-line flag
     std::vector<std::thread> threads;
-    std::array<std::string,6> flags={"--t","--i","--nh","--s","--l","--h"};//t=thread,i=case insensitive,nh=highlight off,s=strict search
+    std::array<std::string,5> flags={"--t","--i","--nh","--s","--l"};//t=thread,i=case insensitive,nh=highlight off,s=strict search
     //collects patterns and files name in respective container
     bool after_f=false;
     bool outside_file_scope=false;        
